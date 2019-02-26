@@ -29,8 +29,9 @@ def parseChessCoords (machine_coords):
     possibleMoves.sort()
     return possibleMoves
 
+
 def getKnightMoves(pos, board = chessBoard):
- 
+    
     column, row = list(pos.strip().lower())
     row = int(row) - 1
     column = map_from_alpha_to_index[column]
@@ -81,12 +82,14 @@ def getKnightMoves(pos, board = chessBoard):
     print(all_moves)
     return all_moves
 
+
 def getRookMoves (pos, board = chessBoard):
     column, row = list(pos.strip().lower())
     row = int(row) - 1
     column = map_from_alpha_to_index[column]
     i,j = row, column
     solutionMoves = []
+
     for k in range (0,8):
         checkAppend(k,j,solutionMoves)
     for tmp in range (0,8):
@@ -98,8 +101,32 @@ def getRookMoves (pos, board = chessBoard):
     print(all_moves)
     return all_moves
 
+
+def getBishopMoves (pos, board = chessBoard):
+    column, row = list(pos.strip().lower())
+    row = int(row) - 1
+    column = map_from_alpha_to_index[column]
+    i,j = row, column
+    solutionMoves = []
+
+    n = 1
+    while j-n >= 0:
+
+        checkAppend(i+n, j-n, solutionMoves)
+        checkAppend(i-n, j-n, solutionMoves)
+        n += 1
+
+    n = 1
+    while j+n < 8:
+        checkAppend(i+n, j+n, solutionMoves)
+        checkAppend(i-n, j+n, solutionMoves)
+        n += 1
+
+    all_moves = parseChessCoords(solutionMoves)
+    print(all_moves)
+    return all_moves
+
+
+getKnightMoves('d4')
 getRookMoves('e6')
-getKnightMoves('d4')    
-    
-
-
+getBishopMoves('e3')
