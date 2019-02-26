@@ -133,7 +133,7 @@ def getQueenMoves (pos, board = chessBoard):
     return solutionMoves
 
 
-# getKnightMoves('d4')
-# getRookMoves('e6')
-# getBishopMoves('e3')
+getKnightMoves('d4')
+getRookMoves('e6')
+getBishopMoves('e3')
 getQueenMoves('e3')
