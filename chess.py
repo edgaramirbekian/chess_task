@@ -126,7 +126,14 @@ def getBishopMoves (pos, board = chessBoard):
     print(all_moves)
     return all_moves
 
+def getQueenMoves (pos, board = chessBoard):
+    solutionMoves = getBishopMoves(pos) + getRookMoves(pos)
+    solutionMoves.sort()
+    print(solutionMoves)
+    return solutionMoves
 
-getKnightMoves('d4')
-getRookMoves('e6')
-getBishopMoves('e3')
+
+# getKnightMoves('d4')
+# getRookMoves('e6')
+# getBishopMoves('e3')
+getQueenMoves('e3')
