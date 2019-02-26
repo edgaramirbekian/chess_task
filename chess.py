@@ -30,7 +30,7 @@ def parseChessCoords (machine_coords):
     return possibleMoves
 
 def getKnightMoves(pos, board = chessBoard):
-    
+ 
     column, row = list(pos.strip().lower())
     row = int(row) - 1
     column = map_from_alpha_to_index[column]
@@ -81,10 +81,25 @@ def getKnightMoves(pos, board = chessBoard):
     print(all_moves)
     return all_moves
 
-getKnightMoves('d4')
+def getRookMoves (pos, board = chessBoard):
+    column, row = list(pos.strip().lower())
+    row = int(row) - 1
+    column = map_from_alpha_to_index[column]
+    i,j = row, column
+    solutionMoves = []
+    for k in range (0,8):
+        checkAppend(k,j,solutionMoves)
+    for tmp in range (0,8):
+        checkAppend(i,tmp,solutionMoves)
 
-def getBishopMoves (pos, board = chessBoard):
+    all_moves = parseChessCoords(solutionMoves)
+    all_moves = list(filter(lambda a: a != pos, all_moves))
 
+    print(all_moves)
+    return all_moves
+
+getRookMoves('e6')
+getKnightMoves('d4')    
     
 
 
