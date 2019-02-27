@@ -23,6 +23,9 @@ map_from_index_to_alpha = {
 def checkAppend (x,y, solutions_arr):
     if x >= 0 and y >= 0 and x <= 7 and y <= 7:
         solutions_arr.append([x,y])
+    else:
+        print('Your coordinates are false. Please correct it')
+        raise ValueError ('Your coordinates are false. Please correct it')
 
 def parseChessCoords (machine_coords):
     possibleMoves = ["".join([map_from_index_to_alpha[i[1]], str(i[0] + 1)]) for i in machine_coords]
