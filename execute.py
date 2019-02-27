@@ -9,6 +9,7 @@ def check_usr_input (user_input):
             input_coords()
         else:
             print('bye')
+            quit()
 
 def input_coords ():
 
