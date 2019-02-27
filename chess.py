@@ -21,7 +21,7 @@ map_from_index_to_alpha = {
 }
 
 def checkAppend (x,y, solutions_arr):
-    if x >= 0 and y >= 0:
+    if x >= 0 and y >= 0 and x <= 7 and y <= 7:
         solutions_arr.append([x,y])
 
 def parseChessCoords (machine_coords):
@@ -82,7 +82,7 @@ def getKnightMoves(pos, board = chessBoard):
         checkAppend(i-1, j-2, solutionMoves)
     except:
         pass
-    
+    # print(solutionMoves)
     all_moves = parseChessCoords(solutionMoves)
     # print(all_moves)
     return all_moves
@@ -160,8 +160,8 @@ def getKingMoves (pos, board = chessBoard):
     return all_moves
 
 
-# getKnightMoves('d4')
+# getKnightMoves('h3')
 # getRookMoves('e6')
 # getBishopMoves('e3')
-# # getQueenMoves('e3')
+# getQueenMoves('e3')
 # getKingMoves('a8')
