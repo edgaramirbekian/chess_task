@@ -30,7 +30,10 @@ def input_coords ():
     if flag == True:
         print('Checkmate !!!')
     else:
-        print ('No Checkmate :( Try Again')
-        input_coords()
+        again = input ('No Checkmate :( Try Again ? y/n ')
+        if again.lower() == 'y':
+            input_coords()
+        else:
+            print('bye')
 
 input_coords ()
