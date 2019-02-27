@@ -1,12 +1,28 @@
 import chess
 
-def input_coords ():
-    black_king = input('Coordinates of the black King --- ')
+def check_usr_input (user_input):
+    if len(user_input) == 2 and user_input[0] >= 'a' and user_input[0] <= 'h' and int(user_input[1]) >= 1 and int(user_input[1]) <= 8:
+        pass
+    else:
+        inp = input ('You have entered uncorrect coordinates. Try Again y/n ')
+        if inp.lower() == 'y':
+            input_coords()
+        else:
+            print('bye')
 
+def input_coords ():
+
+    black_king = input('Coordinates of the black King --- ')
+    check_usr_input(black_king)
     white_king = input('Coordinates of the white King --- ')
+    check_usr_input(white_king)
     white_queen = input('Coordinates of the white Queen --- ')
+    check_usr_input(white_queen)
     white_bishop = input('Coordinates of the white Bishop --- ')
+    check_usr_input(white_bishop)
     white_knight = input('Coordinates of the white Knight --- ')
+    check_usr_input(white_knight)
+
     all_white_moves = (chess.getKingMoves(white_king) + chess.getQueenMoves(white_queen) + chess.getBishopMoves(white_bishop) + chess.getKnightMoves(white_knight))
     all_white_moves.sort()
 
