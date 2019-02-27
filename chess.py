@@ -84,7 +84,7 @@ def getKnightMoves(pos, board = chessBoard):
         pass
     
     all_moves = parseChessCoords(solutionMoves)
-    print(all_moves)
+    # print(all_moves)
     return all_moves
 
 
@@ -103,7 +103,7 @@ def getRookMoves (pos, board = chessBoard):
     all_moves = parseChessCoords(solutionMoves)
     all_moves = removeSelfCoords(all_moves, pos)
 
-    print(all_moves)
+    # print(all_moves)
     return all_moves
 
 
@@ -128,14 +128,14 @@ def getBishopMoves (pos, board = chessBoard):
         n += 1
 
     all_moves = parseChessCoords(solutionMoves)
-    print(all_moves)
+    # print(all_moves)
     return all_moves
 
 
 def getQueenMoves (pos, board = chessBoard):
     all_moves = getBishopMoves(pos) + getRookMoves(pos)
     all_moves.sort()
-    print(all_moves)
+    # print(all_moves)
     return all_moves
 
 
@@ -148,22 +148,20 @@ def getKingMoves (pos, board = chessBoard):
 
     n = i-1
     while n <= i+1:
-        checkAppend(n, j-1, solutionMoves)
-        checkAppend(n, j, solutionMoves)
-        checkAppend(n, j+1, solutionMoves)
+        if n < 8 and n >=0:
+            checkAppend(n, j-1, solutionMoves)
+            checkAppend(n, j, solutionMoves)
+            checkAppend(n, j+1, solutionMoves)
         n += 1
 
     all_moves = parseChessCoords(solutionMoves)
     all_moves = removeSelfCoords(all_moves, pos)
-    print(all_moves)
+    # print(all_moves)
     return all_moves
 
 
-
-
-
-getKnightMoves('d4')
-getRookMoves('e6')
-getBishopMoves('e3')
-# getQueenMoves('e3')
-getKingMoves('e3')
+# getKnightMoves('d4')
+# getRookMoves('e6')
+# getBishopMoves('e3')
+# # getQueenMoves('e3')
+# getKingMoves('a8')
